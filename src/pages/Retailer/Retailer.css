@@ -1,5 +1,5 @@
 .retailerBody{
-  background-image: url("C:\Users\msaic\Downloads\retailer1.png"); /* Path to your image in the public folder */
+  background-image: url("../../images/retailer1.png"); /* Path to your image in the public folder */
   height: 100vh;
 
 }
