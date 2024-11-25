@@ -1,6 +1,6 @@
 /* Inventory.css */
 .inventory-page {
-  background-image: url("C:\Users\msaic\Downloads\download.png"); /* Path to your image in the public folder */
+  background-image: url("C:\Users\msaic\OneDrive\Desktop\InventoryManagement\frontend\public\download.png"); /* Path to your image in the public folder */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
