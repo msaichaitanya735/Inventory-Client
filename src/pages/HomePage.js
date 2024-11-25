@@ -153,7 +153,7 @@ const HomePage = () => {
     }
     
     if(isLoginView) {
-      const apiUrl = 'http://localhost:8080/user/login';
+      const apiUrl = 'http://44.203.214.233:8080/user/login';
       const LoginRequest = {
         username: formData.email,
         password: formData.password
@@ -198,7 +198,7 @@ const HomePage = () => {
         console.error('Error during API call:', error);
       }
     }
-    // const apiUrl = isLoginView ? 'http://localhost:8080/user/login ' : 'http://localhost:8080/user/adduser';
+    // const apiUrl = isLoginView ? 'http://44.203.214.233:8080/user/login ' : 'http://44.203.214.233:8080/user/adduser';
   };
 
   const handleSubmitRegister=async(e)=>{
@@ -214,7 +214,7 @@ const HomePage = () => {
       contact: formData.contactNumber,
       role: formData.userType.toUpperCase() 
     }
-    const apiUrl = 'http://localhost:8080/user/adduser';
+    const apiUrl = 'http://44.203.214.233:8080/user/adduser';
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',

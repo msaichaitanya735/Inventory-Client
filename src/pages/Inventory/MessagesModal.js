@@ -7,7 +7,7 @@ const MessagesModal = ({ messages, onClose }) => {
     const markAsRead = (messageId) => {
         // Make an API call to mark the message as read
         // Replace with actual API endpoint
-        axios.post(`http://localhost:8080/order/markmessageread?messageId=${messageId}`)
+        axios.post(`http://44.203.214.233:8080/order/markmessageread?messageId=${messageId}`)
           .then(response => {
             // Handle success (if needed)
             console.log('Message marked as read:', response.data);

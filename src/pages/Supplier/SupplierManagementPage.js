@@ -16,7 +16,7 @@ const SupplierManagementPage = () => {
   useEffect(() => {
     const fetchSupplierProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/inventory/getsupplier?supplierId=${localStorage.getItem('userId')}`);
+        const response = await axios.get(`http://44.203.214.233:8080/inventory/getsupplier?supplierId=${localStorage.getItem('userId')}`);
         setSupplierProducts(response.data.products || []);
       } catch (error) {
         console.error('Error fetching supplier products:', error);
@@ -24,7 +24,7 @@ const SupplierManagementPage = () => {
     };
     const fetchAllProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/order/getproductsnotinsupplier?supplierId=${localStorage.getItem('userId')}`);
+        const response = await axios.get(`http://44.203.214.233:8080/order/getproductsnotinsupplier?supplierId=${localStorage.getItem('userId')}`);
         setAllProducts(response.data || []); // Ensure it's an array or use an empty array if undefined
       } catch (error) {
         console.error('Error fetching all products:', error);
@@ -45,7 +45,7 @@ const SupplierManagementPage = () => {
 
   const handleAddProduct = async (productId) => {
     try {
-      const response = await axios.post(`http://localhost:8080/order/addsupplierproduct?supplierId=${localStorage.getItem('userId')}&productId=${productId}`);
+      const response = await axios.post(`http://44.203.214.233:8080/order/addsupplierproduct?supplierId=${localStorage.getItem('userId')}&productId=${productId}`);
       setSupplierProducts(response.data || []); // Ensure it's an array or use an empty array if undefined
       window.location.reload();
 
@@ -55,7 +55,7 @@ const SupplierManagementPage = () => {
   };
 const handleDeleteAllProducts = async () => {
   try {
-    const response = await axios.delete('http://localhost:8080/inventory/deleteproductsfromsupplier', {
+    const response = await axios.delete('http://44.203.214.233:8080/inventory/deleteproductsfromsupplier', {
       params: { supplierId: localStorage.getItem('userId')}
     });
     window.location.reload();
@@ -66,7 +66,7 @@ const handleDeleteAllProducts = async () => {
 };
 
   const handleOpenMessages = () => {
-    axios.get(`http://localhost:8080/inventory/getmessagesinventory`)
+    axios.get(`http://44.203.214.233:8080/inventory/getmessagesinventory`)
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
     setIsMessagesModalOpen(true);

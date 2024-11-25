@@ -12,7 +12,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onAddProduct }) => {
   const [productUnitsOfMeasure, setProductUnitsOfMeasure] = useState('');
 
   useEffect(() => {
-      axios.get(' http://localhost:8080/inventory/fetchallcategories')
+      axios.get(' http://44.203.214.233:8080/inventory/fetchallcategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
       console.log(categories);
@@ -31,7 +31,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onAddProduct }) => {
       onAddProduct(newProduct);
       console.log(newProduct);
       
-      const apiUrl = ` http://localhost:8080/inventory/addproduct?name= ${productName}&description= ${productDescription}&categoryId=${productCategory}&imgURL= ${productImageURL}`;
+      const apiUrl = ` http://44.203.214.233:8080/inventory/addproduct?name= ${productName}&description= ${productDescription}&categoryId=${productCategory}&imgURL= ${productImageURL}`;
       console.log(apiUrl);
       // Handle saving changes to the backend if needed
       // Update the productData array or make an API call to update the product
