@@ -1,0 +1,67 @@
+[
+  {
+    "paymentID": 1,
+    "orderID": 101,
+    "status": "Paid",
+    "amount": 50.00,
+    "date": "2023-11-01",
+    "method": "Credit Card"
+  },
+  {
+    "paymentID": 2,
+    "orderID": 102,
+    "status": "Pending",
+    "amount": 75.50,
+    "date": "2023-11-02",
+    "method": "PayPal"
+  },
+  {
+    "paymentID": 3,
+    "orderID": 103,
+    "status": "Paid",
+    "amount": 120.25,
+    "date": "2023-11-03",
+    "method": "Stripe"
+  },
+{
+  "paymentID": 4,
+  "orderID": 104,
+  "status": "Paid",
+  "amount": 90.75,
+  "date": "2023-11-04",
+  "method": "Bank Transfer"
+},
+{
+  "paymentID": 5,
+  "orderID": 105,
+  "status": "Pending",
+  "amount": 65.20,
+  "date": "2023-11-05",
+  "method": "Credit Card"
+},
+{
+  "paymentID": 6,
+  "orderID": 106,
+  "status": "Paid",
+  "amount": 150.00,
+  "date": "2023-11-06",
+  "method": "PayPal"
+},
+{
+  "paymentID": 7,
+  "orderID": 107,
+  "status": "Pending",
+  "amount": 42.99,
+  "date": "2023-11-07",
+  "method": "Stripe"
+},
+{
+  "paymentID": 8,
+  "orderID": 108,
+  "status": "Paid",
+  "amount": 110.50,
+  "date": "2023-11-08",
+  "method": "Credit Card"
+}
+  ]
+  

@@ -1,0 +1,23 @@
+/* Add styles for the purchase order row */
+.purchase-order-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .purchase-order-row div {
+    flex: 1;
+  }
+  
+  .purchase-order-row input {
+    margin-right: 10px;
+  }
+  
+  /* Add general styles for the page */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  

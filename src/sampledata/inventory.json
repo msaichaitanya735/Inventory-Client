@@ -1,0 +1,83 @@
+[
+    {
+      "productID": 1,
+      "supplierID": 101,
+      "quantity": 100,
+      "price": 2.5,
+      "reorderPoint": 20,
+      "units": "pieces"
+    },
+    {
+      "productID": 2,
+      "supplierID": 102,
+      "quantity": 50,
+      "price": 5.0,
+      "reorderPoint": 10,
+      "units": "liters"
+    },
+    {
+      "productID": 3,
+      "supplierID": 103,
+      "quantity": 200,
+      "price": 1.0,
+      "reorderPoint": 50,
+      "units": "kilograms"
+    },
+    {
+      "productID": 4,
+      "supplierID": 104,
+      "quantity": 80,
+      "price": 3.0,
+      "reorderPoint": 15,
+      "units": "pieces"
+    },
+    {
+      "productID": 5,
+      "supplierID": 105,
+      "quantity": 30,
+      "price": 4.5,
+      "reorderPoint": 8,
+      "units": "liters"
+    },
+    {
+      "productID": 6,
+      "supplierID": 101,
+      "quantity": 120,
+      "price": 2.0,
+      "reorderPoint": 30,
+      "units": "kilograms"
+    },
+    {
+      "productID": 7,
+      "supplierID": 102,
+      "quantity": 60,
+      "price": 6.0,
+      "reorderPoint": 25,
+      "units": "pieces"
+    },
+    {
+      "productID": 8,
+      "supplierID": 103,
+      "quantity": 90,
+      "price": 1.5,
+      "reorderPoint": 18,
+      "units": "liters"
+    },
+    {
+      "productID": 9,
+      "supplierID": 104,
+      "quantity": 40,
+      "price": 4.0,
+      "reorderPoint": 12,
+      "units": "kilograms"
+    },
+    {
+      "productID": 10,
+      "supplierID": 105,
+      "quantity": 70,
+      "price": 3.5,
+      "reorderPoint": 20,
+      "units": "pieces"
+    }
+  ]
+  

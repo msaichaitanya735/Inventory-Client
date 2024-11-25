@@ -1,0 +1,113 @@
+.retailerBody{
+  background-image: url("C:\Users\msaic\Downloads\retailer1.png"); /* Path to your image in the public folder */
+  height: 100vh;
+
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.nav-link {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.heading {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  width: 200px;
+  text-align: center;
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.product-card.disabled {
+  background-color: #f5f5f5;
+  opacity: 0.6;
+}
+
+.product-card.disabled button {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.product-card h3 {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.product-card p {
+  margin: 0.5em 0;
+}
+
+.product-card button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-card button:disabled {
+  background-color: #ccc;
+}
+
+.action-btn {
+  cursor: pointer;
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+}
+
+.retailerButtons a{
+  padding: 10px;
+  border:white
+}
+.return-text {
+  color: red;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}

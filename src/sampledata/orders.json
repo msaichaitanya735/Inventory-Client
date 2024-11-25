@@ -1,0 +1,39 @@
+[
+    {
+      "orderId": 1,
+      "retailerId": 101,
+      "date": "2023-10-30",
+      "amount": 120.50,
+      "products": [
+        {
+          "productId": 1,
+          "productName": "Tomatoes",
+          "quantity": 2
+        },
+        {
+          "productId": 3,
+          "productName": "Bread",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "orderId": 2,
+      "retailerId": 102,
+      "date": "2023-10-31",
+      "amount": 75.20,
+      "products": [
+        {
+          "productId": 2,
+          "productName": "Milk",
+          "quantity": 3
+        },
+        {
+          "productId": 7,
+          "productName": "Spinach",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+  

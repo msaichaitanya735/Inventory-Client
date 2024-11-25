@@ -1,0 +1,38 @@
+[
+    {
+      "purchaseID": 1,
+      "productID": 1,
+      "quantity": 100,
+      "date": "2023-11-01",
+      "acceptedPrice": 2.5
+    },
+    {
+      "purchaseID": 2,
+      "productID": 3,
+      "quantity": 50,
+      "date": "2023-11-03",
+      "acceptedPrice": 1.8
+    },
+    {
+      "purchaseID": 3,
+      "productID": 5,
+      "quantity": 200,
+      "date": "2023-11-05",
+      "acceptedPrice": 5.0
+    },
+    {
+      "purchaseID": 4,
+      "productID": 7,
+      "quantity": 75,
+      "date": "2023-11-08",
+      "acceptedPrice": 3.2
+    },
+    {
+      "purchaseID": 5,
+      "productID": 9,
+      "quantity": 30,
+      "date": "2023-11-10",
+      "acceptedPrice": 8.5
+    }
+  ]
+  

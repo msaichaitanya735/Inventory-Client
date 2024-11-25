@@ -1,0 +1,29 @@
+/* src/components/Tabs.css */
+.tab-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  button.active {
+    background-color: #ddd;
+  }
+  
+  .tab-content {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .flexcontainer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ddd;
+  }

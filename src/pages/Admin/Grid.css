@@ -1,0 +1,121 @@
+/* src/components/Grid.css */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    object-fit: cover; /* Preserve aspect ratio and cover the entire container */
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* src/pages/AdminPage.css */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  align-items: center;
+  position: relative;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: #e60000;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.tab-container button {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  color: black;
+}
+
+.tab-container button:hover {
+  background-color: #ddd;
+}
+
+.tab-container button.active {
+  background-color: #858282;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.tab-content {
+  width: 80%;
+  margin: 20px 0;
+}
+
+.UnauthorizedSupplierApproveButton {
+  background-color: rgb(161, 159, 159);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.UnauthorizedSupplierApproveButton {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.UnauthorizedSupplierApproveButton:hover {
+  background-color: #57db4ed8;
+}
+
+.UnauthorizedSupplierApproveButton.done {
+  background-color: rgb(145, 144, 144);
+  color: white;
+}

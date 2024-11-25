@@ -1,0 +1,83 @@
+[
+    {
+      "productId": 1,
+      "name": "Tomatoes",
+      "description": "Fresh red tomatoes",
+      "category": "Vegetables",
+      "unitsOfMeasure": "per kilogram",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg"
+    },
+    {
+      "productId": 2,
+      "name": "Milk",
+      "description": "Whole milk, 1 liter",
+      "category": "Dairy",
+      "unitsOfMeasure": "per liter",
+      "imageURL": "https://elanaspantry.com/wp-content/uploads/2020/07/The-Best-Milk-For-The-Keto-Diet-1344x1536.jpg"
+    },
+    {
+      "productId": 3,
+      "name": "Bread",
+      "description": "Whole wheat bread",
+      "category": "Bakery",
+      "unitsOfMeasure": "per loaf",
+      "imageURL": "https://www.bhg.com/thmb/ix1jf9aUXcxyFtekIBlVCAIBW4w=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/BHG-milk-bread-4CdeIL1uKGyB5ryU8J_EED-aaa76729c86a413ca7500029edba79f0.jpg"
+    },
+    {
+      "productId": 4,
+      "name": "Apples",
+      "description": "Crisp green apples",
+      "category": "Fruits",
+      "unitsOfMeasure": "per kilogram",
+      "imageURL": "https://waapple.org/wp-content/uploads/2021/06/Variety_Cosmic-Crisp-transparent.png"
+    },
+    {
+      "productId": 5,
+      "name": "Chicken Breast",
+      "description": "Boneless chicken breast, 500g",
+      "category": "Meat",
+      "unitsOfMeasure": "per 500 grams",
+      "imageURL": "https://www.primaverakitchen.com/wp-content/uploads/2019/03/Garlic-Butter-Baked-Chicken-Breast-Primavera-Kitchen-2.jpg"
+    },
+    {
+      "productId": 6,
+      "name": "Eggs",
+      "description": "Fresh farm eggs, dozen",
+      "category": "Dairy",
+      "unitsOfMeasure": "per dozen",
+      "imageURL": "https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg"
+    },
+    {
+      "productId": 7,
+      "name": "Spinach",
+      "description": "Organic spinach leaves",
+      "category": "Vegetables",
+      "unitsOfMeasure": "per bunch",
+      "imageURL": "https://lettuceinfo.org/wp-content/uploads/2020/09/Spinach.jpg"
+    },
+    {
+      "productId": 8,
+      "name": "Orange Juice",
+      "description": "Freshly squeezed orange juice",
+      "category": "Beverages",
+      "unitsOfMeasure": "per liter",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/0/05/Orangejuice.jpg"
+    },
+    {
+      "productId": 9,
+      "name": "Salmon Fillet",
+      "description": "Fresh salmon fillet, 250g",
+      "category": "Seafood",
+      "unitsOfMeasure": "per 250 grams",
+      "imageURL": "https://oshensalmon.com/cdn/shop/products/entertainerforgorgias.jpg?v=1670607309"
+    },
+    {
+      "productId": 10,
+      "name": "Rice",
+      "description": "Basmati rice, 1kg",
+      "category": "Grains",
+      "unitsOfMeasure": "per kilogram",
+      "imageURL": "https://media.istockphoto.com/id/827465154/photo/white-rice-in-burlap-sack-bag-isolated-on-white-background.webp?s=1024x1024&w=is&k=20&c=MuwhHs7DIZaOuID_mvDMCdSawP2asbILad-VCQlgENM="
+    }
+  ]
+  

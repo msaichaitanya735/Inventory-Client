@@ -1,0 +1,97 @@
+[
+    {
+      "supplierID": 1,
+      "name": "Supplier1",
+      "contact": "123-456-7890",
+      "products": [
+        {
+          "productId": 1,
+          "name": "Tomatoes",
+          "description": "Fresh red tomatoes",
+          "category": "Vegetables",
+          "unitsOfMeasure": "per kilogram",
+          "imageURL": "https://example.com/tomatoes.jpg"
+        },
+        {
+          "productId": 2,
+          "name": "Milk",
+          "description": "Whole milk, 1 liter",
+          "category": "Dairy",
+          "unitsOfMeasure": "per liter",
+          "imageURL": "https://example.com/milk.jpg"
+        },
+        {
+            "productId": 7,
+            "name": "Spinach",
+            "description": "Organic spinach leaves",
+            "category": "Vegetables",
+            "unitsOfMeasure": "per bunch",
+            "imageURL": "https://example.com/spinach.jpg"
+          },
+          {
+            "productId": 8,
+            "name": "Orange Juice",
+            "description": "Freshly squeezed orange juice",
+            "category": "Beverages",
+            "unitsOfMeasure": "per liter",
+            "imageURL": "https://example.com/orangejuice.jpg"
+          },
+          {
+            "productId": 9,
+            "name": "Salmon Fillet",
+            "description": "Fresh salmon fillet, 250g",
+            "category": "Seafood",
+            "unitsOfMeasure": "per 250 grams",
+            "imageURL": "https://example.com/salmon.jpg"
+          }
+      ]
+    },
+    {
+      "supplierID": 2,
+      "name": "Supplier2",
+      "contact": "987-654-3210",
+      "products": [
+        {
+          "productId": 3,
+          "name": "Bread",
+          "description": "Whole wheat bread",
+          "category": "Bakery",
+          "unitsOfMeasure": "per loaf",
+          "imageURL": "https://example.com/bread.jpg"
+        },
+        {
+          "productId": 4,
+          "name": "Apples",
+          "description": "Crisp green apples",
+          "category": "Fruits",
+          "unitsOfMeasure": "per kilogram",
+          "imageURL": "https://example.com/apples.jpg"
+        },
+        {
+          "productId": 5,
+          "name": "Chicken Breast",
+          "description": "Boneless chicken breast, 500g",
+          "category": "Meat",
+          "unitsOfMeasure": "per 500 grams",
+          "imageURL": "https://example.com/chicken.jpg"
+        },
+        {
+          "productId": 6,
+          "name": "Eggs",
+          "description": "Fresh farm eggs, dozen",
+          "category": "Dairy",
+          "unitsOfMeasure": "per dozen",
+          "imageURL": "https://example.com/eggs.jpg"
+        },
+        {
+            "productId": 10,
+            "name": "Rice",
+            "description": "Basmati rice, 1kg",
+            "category": "Grains",
+            "unitsOfMeasure": "per kilogram",
+            "imageURL": "https://example.com/rice.jpg"
+          }
+      ]
+    }
+  ]
+  

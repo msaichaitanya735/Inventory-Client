@@ -1,0 +1,57 @@
+/* RestockPage.css */
+
+.restock-page {
+  padding: 5px;
+}
+
+.restock-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.restock-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.restock-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  height: 25vh;
+}
+
+.product-info {
+  margin-bottom: 10px;
+}
+
+.quantity-input {
+  margin-bottom: 10px;
+}
+
+.purchase-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.purchase-button:hover {
+  background-color: #0056b3;
+}
+
+.done-button {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: not-allowed;
+  font-size: 14px;
+}

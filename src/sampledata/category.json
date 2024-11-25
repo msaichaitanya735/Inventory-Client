@@ -1,0 +1,52 @@
+[
+    {
+      "categoryId": 1,
+      "categoryName": "Fruits",
+      "description": "Various fresh fruits"
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Vegetables",
+      "description": "A variety of fresh vegetables"
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Dairy",
+      "description": "Milk, cheese, yogurt, etc."
+    },
+    {
+      "categoryId": 4,
+      "categoryName": "Meat",
+      "description": "Fresh meat products"
+    },
+    {
+      "categoryId": 5,
+      "categoryName": "Bakery",
+      "description": "Bread, pastries, and baked goods"
+    },
+    {
+      "categoryId": 6,
+      "categoryName": "Snacks",
+      "description": "Various snacks and munchies"
+    },
+    {
+      "categoryId": 7,
+      "categoryName": "Beverages",
+      "description": "Drinks and beverages"
+    },
+    {
+      "categoryId": 8,
+      "categoryName": "Canned Goods",
+      "description": "Canned food items"
+    },
+    {
+      "categoryId": 9,
+      "categoryName": "Personal Care",
+      "description": "Personal care and hygiene products"
+    },
+    {
+      "categoryId": 10,
+      "categoryName": "Household",
+      "description": "Household cleaning and essentials"
+    }
+  ]

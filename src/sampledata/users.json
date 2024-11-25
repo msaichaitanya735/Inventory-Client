@@ -1,0 +1,67 @@
+[
+    {
+        "username": "admin_user",
+        "fullName": "Admin User",
+        "contactNumber": "1231231234",
+        "email": "admin.user@example.com",
+        "password": "adminpassword",
+        "userType": "admin"
+      },
+    {
+      "username": "john_doe",
+      "fullName": "John Doe",
+      "contactNumber": "1234567890",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "userType": "retailer"
+    },
+    {
+      "username": "jane_smith",
+      "fullName": "Jane Smith",
+      "contactNumber": "9876543210",
+      "email": "jane.smith@example.com",
+      "password": "securepassword",
+      "userType": "supplier"
+    },
+    {
+      "username": "sam_wilson",
+      "fullName": "Sam Wilson",
+      "contactNumber": "5551234567",
+      "email": "sam.wilson@example.com",
+      "password": "samspassword",
+      "userType": "retailer"
+    },
+    {
+      "username": "emma_jones",
+      "fullName": "Emma Jones",
+      "contactNumber": "3338889999",
+      "email": "emma.jones@example.com",
+      "password": "emmasecret",
+      "userType": "supplier"
+    },
+    {
+      "username": "mike_brown",
+      "fullName": "Mike Brown",
+      "contactNumber": "7771112222",
+      "email": "mike.brown@example.com",
+      "password": "mikesecure",
+      "userType": "retailer"
+    },
+    {
+      "username": "sara_miller",
+      "fullName": "Sara Miller",
+      "contactNumber": "4445556666",
+      "email": "sara.miller@example.com",
+      "password": "saraspassword",
+      "userType": "supplier"
+    },
+    {
+      "username": "alex_carter",
+      "fullName": "Alex Carter",
+      "contactNumber": "9990001111",
+      "email": "alex.carter@example.com",
+      "password": "alexspassword",
+      "userType": "retailer"
+    }
+  ]
+  
