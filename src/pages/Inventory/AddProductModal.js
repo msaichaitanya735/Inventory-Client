@@ -9,7 +9,7 @@ const AddProductModal = ({ onAdd, onClose }) => {
 
     useEffect(() => {
         // Fetch inventory data from the backend
-        axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/getproductsnotininventory')
+        axios.get('http://44.203.214.233:8080/inventory/getproductsnotininventory')
             .then(response => setProducts(response.data))
             .catch(error => console.error('Error fetching products:', error));
     }, []);
@@ -26,7 +26,7 @@ const AddProductModal = ({ onAdd, onClose }) => {
 
     const handleAddProduct = (productId) => {
         const { reorderpoint, price, units } = inputs[productId] || { reorderpoint: '0', price: '0', units: '' };
-        const api = `https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/addproducttoinventory?productId=${productId}&price=${price}&reorderPoint=${reorderpoint}&units=${units}`;
+        const api = `http://44.203.214.233:8080/inventory/addproducttoinventory?productId=${productId}&price=${price}&reorderPoint=${reorderpoint}&units=${units}`;
         axios.post(api)
             .then(response => {
                 console.log('Product added:', response.data);

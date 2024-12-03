@@ -29,7 +29,7 @@ const PaymentPage = () => {
   const handlePayment = async () => {
     console.log('here');
     try {
-      const api = `https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/acceptquotaion?purchaseId=${quotation.purchaseID}&quotationId=${quotation.quotationID}`;
+      const api = `http://44.203.214.233:8080/inventory/acceptquotaion?purchaseId=${quotation.purchaseID}&quotationId=${quotation.quotationID}`;
       const response = await axios.post(api);
       console.log(response.data);
     } catch (error) {

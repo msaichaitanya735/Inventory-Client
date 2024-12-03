@@ -14,7 +14,7 @@ const CategoryGrid = () => {
   });
   useEffect(() => {
     // Replace 'api/products' with the actual endpoint to fetch products
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallcategories')
+    axios.get('http://44.203.214.233:8080/inventory/fetchallcategories')
       .then(response => setCategoryData(response.data))
       .catch(error => console.error('Error fetching products:', error));
       console.log(categoryData);      

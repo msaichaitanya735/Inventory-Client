@@ -18,15 +18,15 @@ const QuotationsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/viewpurchases')
+    axios.get('http://44.203.214.233:8080/inventory/viewpurchases')
       .then(response => setPurchases(response.data))
       .catch(error => console.error('Error fetching purchases:', error));
 
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallproducts')
+    axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
       .then(response => setAllProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
 
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/viewquotations')
+    axios.get('http://44.203.214.233:8080/inventory/viewquotations')
       .then(response => setQuotations(response.data))
       .catch(error => console.error('Error fetching quotations:', error));
   }, []);
@@ -71,7 +71,7 @@ const QuotationsPage = () => {
   };
 
   const handleOpenMessages = () => {
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/getmessagesinventory')
+    axios.get('http://44.203.214.233:8080/inventory/getmessagesinventory')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 

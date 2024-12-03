@@ -25,21 +25,21 @@ const InventoryPage = () => {
 
   useEffect(() => {
     // Fetch inventory data from the backend
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallcategories')
+    axios.get('http://44.203.214.233:8080/inventory/fetchallcategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
 
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchinventory')
+    axios.get('http://44.203.214.233:8080/inventory/fetchinventory')
       .then(response => setInventory(response.data))
       .catch(error => console.error('Error fetching inventory:', error));
 
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallproducts')
+    axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
       .then(response => setProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
   useEffect(() => {
-    axios.get(`https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchinventorybasedoncategory?categoryName=${productCategory}`)
+    axios.get(`http://44.203.214.233:8080/inventory/fetchinventorybasedoncategory?categoryName=${productCategory}`)
       .then((res) => console.log(res.data));
   }, [productCategory]);
 
@@ -84,7 +84,7 @@ const InventoryPage = () => {
   };
 
   const handleDelete = (productId) => {
-    const api = `https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/deletefrominventory?productId=${productId}`;
+    const api = `http://44.203.214.233:8080/inventory/deletefrominventory?productId=${productId}`;
     axios.delete(api)
       .then(res => console.log('Deleted successfully'))
       .catch(error => console.error('Error deleting product:', error));
@@ -96,7 +96,7 @@ const InventoryPage = () => {
   };
 
   const handleSaveEdit = (editedProduct) => {
-    axios.put(`https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/addproducttoinventory`, editedProduct)
+    axios.put(`http://44.203.214.233:8080/inventory/addproducttoinventory`, editedProduct)
       .then(response => {
         setInventory(response.data);
         setIsEditModalOpen(false);
@@ -105,7 +105,7 @@ const InventoryPage = () => {
   };
 
   const handleOpenMessages = () => {
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/getmessagesinventory')
+    axios.get('http://44.203.214.233:8080/inventory/getmessagesinventory')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 

@@ -15,7 +15,7 @@ const UserGrid = () => {
   useEffect(() => {
     // Fetch users from the backend or your data source
     // Replace this with the actual API endpoint for fetching users
-    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/user/getallusers')
+    axios.get('http://44.203.214.233:8080/user/getallusers')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
       console.log(users)
@@ -50,7 +50,7 @@ const UserGrid = () => {
 
   const handleDeleteClick = (userID) => {
     // Make an API call to delete the user
-    axios.delete(`https://main.dwoh96qwfxa1j.amplifyapp.com/user/deleteuser?requestId=${userID}`)
+    axios.delete(`http://44.203.214.233:8080/user/deleteuser?requestId=${userID}`)
       .then(() => {
         // Remove the user from the local state
         setUsers(users.filter(user => user.userID !== userID));
@@ -61,7 +61,7 @@ const UserGrid = () => {
 
   const handleSaveChangesClick = (userID) => {
     // Make an API call to update the user data
-    const api = `https://main.dwoh96qwfxa1j.amplifyapp.com/user/updateuser?userId=${userID}&name=${editableUser.name}&contact=${editableUser.contact}`
+    const api = `http://44.203.214.233:8080/user/updateuser?userId=${userID}&name=${editableUser.name}&contact=${editableUser.contact}`
     axios.put(api)
       .then(response => {
         // Update the local state with the updated user data

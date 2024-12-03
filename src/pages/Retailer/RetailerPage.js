@@ -36,11 +36,11 @@ const RetailerPage = () => {
     };
 
     useEffect(() => {
-        axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchinventory')
+        axios.get('http://44.203.214.233:8080/inventory/fetchinventory')
             .then(response => setInventory(response.data))
             .catch(error => console.error('Error fetching inventory:', error));
 
-        axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallproducts')
+        axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
             .then(response => setProducts(response.data))
             .catch(error => console.error('Error fetching products:', error));
 
