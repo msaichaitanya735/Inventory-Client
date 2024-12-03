@@ -12,7 +12,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onAddProduct }) => {
   const [productUnitsOfMeasure, setProductUnitsOfMeasure] = useState('');
 
   useEffect(() => {
-      axios.get(' http://44.203.214.233:8080/inventory/fetchallcategories')
+      axios.get(' https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallcategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
       console.log(categories);
@@ -31,11 +31,12 @@ const AddProductModal = ({ isOpen, onRequestClose, onAddProduct }) => {
       onAddProduct(newProduct);
       console.log(newProduct);
       
-      const apiUrl = ` http://44.203.214.233:8080/inventory/addproduct?name= ${productName}&description= ${productDescription}&categoryId=${productCategory}&imgURL= ${productImageURL}`;
+      const apiUrl = ` https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/addproduct?name= ${productName}&description= ${productDescription}&categoryId=${productCategory}&imgURL= ${productImageURL}`;
       console.log(apiUrl);
       // Handle saving changes to the backend if needed
       // Update the productData array or make an API call to update the product
       // For simplicity, let's just log the updated product and productId
+
       axios.post(apiUrl)
           .then((response) => {
             // Handle the success response

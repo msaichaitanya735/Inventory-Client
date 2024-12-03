@@ -8,7 +8,7 @@ const AddCategoryForm = ({ isOpen, onRequestClose }) => {
 
   const handleAddCategory = () => {
 
-    axios.post(`http://44.203.214.233:8080/inventory/addcategory?name=${categoryName}`)
+    axios.post(`https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/addcategory?name=${categoryName}`)
     .then(res=>console.log(res.data))
     // Add logic to send data to the server or update state
     console.log('Category Added:', { categoryName, description });

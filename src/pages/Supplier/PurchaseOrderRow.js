@@ -7,7 +7,7 @@ const PurchaseOrderRow = ({ product, quantity, onAccept }) => {
     console.log({product})
   const handleAccept = () => {
     console.log({product})
-    // const api = `http://44.203.214.233:8080/order/addquotationforpurchase?purchaseId=${}&supplierId=${}&price=${}`
+    // const api = `https://main.dwoh96qwfxa1j.amplifyapp.com/order/addquotationforpurchase?purchaseId=${}&supplierId=${}&price=${}`
     onAccept(quotationPrice);
     window.location.reload()
   };

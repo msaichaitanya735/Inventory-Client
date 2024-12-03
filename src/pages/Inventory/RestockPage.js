@@ -17,11 +17,11 @@ const RestockPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://44.203.214.233:8080/inventory/fetchinventory')
+    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchinventory')
       .then(response => setProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
 
-    axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
+    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallproducts')
       .then(response => setAllProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
@@ -42,7 +42,7 @@ const RestockPage = () => {
   };
 
   const handlePurchase = (productId) => {
-    const api = `http://44.203.214.233:8080/inventory/purchaseproduct?productId=${productId}&quantity=${restockQuantities[productId]}`;
+    const api = `https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/purchaseproduct?productId=${productId}&quantity=${restockQuantities[productId]}`;
     axios.post(api)
       .then(response => {
         console.log('Item restocked successfully:', response.data);
@@ -60,7 +60,7 @@ const RestockPage = () => {
   };
 
   const handleOpenMessages = () => {
-    axios.get('http://44.203.214.233:8080/inventory/getmessagesinventory')
+    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/getmessagesinventory')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 

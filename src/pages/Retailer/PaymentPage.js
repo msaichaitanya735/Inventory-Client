@@ -17,7 +17,7 @@ const PaymentPage = () => {
 
       if (itemsForPayment && itemsForPayment.length > 0) {
         for (const item of itemsForPayment) {
-          const response = await axios.post(`http://44.203.214.233:8080/order/orderproduct?retailerId=${localStorage.getItem('userId')}&productId=${item.productId}&quantity=${item.quantity}&method=${paymentType}&role=${localStorage.getItem('role')}&returnable=${item.returnable}`);
+          const response = await axios.post(`https://main.dwoh96qwfxa1j.amplifyapp.com/order/orderproduct?retailerId=${localStorage.getItem('userId')}&productId=${item.productId}&quantity=${item.quantity}&method=${paymentType}&role=${localStorage.getItem('role')}&returnable=${item.returnable}`);
           console.log(response.data);
           console.log(`Payment for Product ID ${item.productId} successful!`);
         }

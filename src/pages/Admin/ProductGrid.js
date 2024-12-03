@@ -18,11 +18,11 @@ const ProductGrid = () => {
 
     useEffect(() => {
     // Replace 'api/products' with the actual endpoint to fetch products
-    axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
+    axios.get('https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallproducts')
       .then(response => setProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
       console.log({products});
-      axios.get(' http://44.203.214.233:8080/inventory/fetchallcategories')
+      axios.get(' https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/fetchallcategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
       console.log(categories);
@@ -87,7 +87,7 @@ return category ? category.name : 'Unknown Category';
     const param = params.toString();
     console.log({param});
     console.log({productid, description, imgURL })
-    const apiUrl = `http://44.203.214.233:8080/inventory/updateproduct?productId=${productid}&description=${description}&imgURL=${imgURL}`;
+    const apiUrl = `https://main.dwoh96qwfxa1j.amplifyapp.com/inventory/updateproduct?productId=${productid}&description=${description}&imgURL=${imgURL}`;
 
     // Handle saving changes to the backend if needed
     // Update the productData array or make an API call to update the product
