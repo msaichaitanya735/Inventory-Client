@@ -29,6 +29,12 @@ const PaymentPage = () => {
       console.error('Error processing payment:', error);
     }
     localStorage.removeItem('ItemsForPayment');
+    const retailerID = localStorage.getItem('userId'); // Get the current user's ID
+    const cartData = JSON.parse(localStorage.getItem('cartData')) || {}; // Get the existing cart data
+
+    // Remove only the current user's cart data
+    delete cartData[retailerID];
+    localStorage.setItem('cartData', JSON.stringify(cartData)); // Update the localStorage
     console.log("Thank you");
     navigate('/retailer');
   };
