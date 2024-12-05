@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import './Retailer.css';
 import { Link } from 'react-router-dom';
 
-
 const RetailerPage = () => {
     const navigate = useNavigate();
     const [inventory, setInventory] = useState([]);
@@ -14,6 +13,30 @@ const RetailerPage = () => {
     const [isCartModalOpen, setCartModalOpen] = useState(false);
     const [isReturnModalOpen, setReturnModalOpen] = useState(false);
     const [cartItems, setCartItems] = useState([]);
+
+    // Load cartItems from localStorage on initial render
+    useEffect(() => {
+        const storedCartItems = JSON.parse(localStorage.getItem('oldCartItemd'))? JSON.parse(localStorage.getItem('oldCartItemd')):JSON.parse(localStorage.getItem('cartItems')) || [];
+        setCartItems(storedCartItems);
+
+        // Fetch inventory and products data
+        axios.get('https://saichaitanyamuthyala.com/inventory/fetchinventory')
+            .then(response => setInventory(response.data))
+            .catch(error => console.error('Error fetching inventory:', error));
+
+        axios.get('https://saichaitanyamuthyala.com/inventory/fetchallproducts')
+            .then(response => setProducts(response.data))
+            .catch(error => console.error('Error fetching products:', error));
+
+        axios.get('/api/orders/history')
+            .then(response => setOrderHistory(response.data))
+            .catch(error => console.error('Error fetching order history:', error));
+    }, []);
+
+    // Update localStorage whenever cartItems change
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     const openCartModal = () => {
         setCartModalOpen(true);
@@ -35,20 +58,6 @@ const RetailerPage = () => {
         setCartItems(newCartItems);
     };
 
-    useEffect(() => {
-        axios.get('https://saichaitanyamuthyala.com/inventory/fetchinventory')
-            .then(response => setInventory(response.data))
-            .catch(error => console.error('Error fetching inventory:', error));
-
-        axios.get('https://saichaitanyamuthyala.com/inventory/fetchallproducts')
-            .then(response => setProducts(response.data))
-            .catch(error => console.error('Error fetching products:', error));
-
-        axios.get('/api/orders/history')
-            .then(response => setOrderHistory(response.data))
-            .catch(error => console.error('Error fetching order history:', error));
-    }, []);
-
     const InventoryList = inventory.map((item1) => {
         const matchingItem = products.find((item2) => item2.productID === item1.productID);
         return {
@@ -63,7 +72,9 @@ const RetailerPage = () => {
         if (existingItem) {
             setCartItems((prevItems) =>
                 prevItems.map((item) =>
-                    item.productId === product.productID ? { ...item, quantity: item.quantity + 1, totalPrice: product.price * (item.quantity + 1) } : item
+                    item.productId === product.productID
+                        ? { ...item, quantity: item.quantity + 1, totalPrice: product.price * (item.quantity + 1) }
+                        : item
                 )
             );
         } else {
@@ -75,7 +86,7 @@ const RetailerPage = () => {
                     price: product.price,
                     quantity: 1,
                     totalPrice: product.price * 1.1,
-                    returnable:product.returnable,
+                    returnable: product.returnable,
                 },
             ]);
         }
@@ -84,9 +95,10 @@ const RetailerPage = () => {
     const totalCartPrice = cartItems.reduce((total, item) => total + item.totalPrice, 0);
 
     const handleLogOut = () => {
+        // Only clear authentication-related data, not cartItems
+        localStorage.removeItem('userToken');
         navigate('/');
-        localStorage.clear();
-    }
+    };
 
     return (
         <div className='retailerBody'>
@@ -98,12 +110,7 @@ const RetailerPage = () => {
                      <a href="#" className="nav-link" onClick={handleLogOut}>
                         Logout
                     </a>
-                    <Link to="/orderhistory">
-                        History
-                    </Link>
-                    {/* <a href="/orderhistory" className="nav-link" onClick={handleLogOut}>
-                        History
-                    </a> */}
+                    <Link to="/orderhistory">History</Link>
                     <i className="fas fa-shopping-cart action-btn" onClick={openCartModal}>Cart</i>
                 </div>
             </div>
@@ -118,19 +125,18 @@ const RetailerPage = () => {
             />
             <div className="product-list">
                 {InventoryList.map(item => {
-                  console.log({item})
                     const cartItem = cartItems.find(cartItem => cartItem.productId === item.productID);
                     const quantityInCart = cartItem ? cartItem.quantity : 0;
                     const isAddToCartDisabled = quantityInCart >= item.quantity || item.quantity === 0;
 
-                    return !isAddToCartDisabled&&(
+                    return !isAddToCartDisabled && (
                         <div key={item.productID} className={`product-card ${item.quantity === 0 ? 'disabled' : ''}`}>
                             <img src={item.imgURL} alt={item.name} className="product-img" />
                             <h3>{item.name}</h3>
                             <p>{item.description}</p>
                             <p>Price: ${item.price}</p>
                             <p>Quantity in Cart: {quantityInCart}</p>
-                            {item.returnable == 'true' && (
+                            {item.returnable === 'true' && (
                                 <p className="return-text" onClick={openReturnModal}>Return available</p>
                             )}
                             <button
@@ -149,7 +155,7 @@ const RetailerPage = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <h2>Return Policy</h2>
-                        <p>This product has return option.</p>
+                        <p>This product has a return option.</p>
                         <button onClick={closeReturnModal}>Close</button>
                     </div>
                 </div>

@@ -144,63 +144,56 @@ const HomePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(isLoginView)
-    if (!validateForm()) {
-      return; // Do not proceed if form is not valid
-    }
-    if(!isLoginView){
-      console.log('hello');
-    }
-    
-    if(isLoginView) {
-      const apiUrl = 'https://saichaitanyamuthyala.com/user/login';
-      const LoginRequest = {
-        username: formData.email,
-        password: formData.password
-      }
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(isLoginView?LoginRequest:formData),
-        });
   
-        if (response.ok) {
-          localStorage.setItem('userId',formData.email );
-          const user = await response.json();
-          localStorage.setItem('role',user.role);
-          console.log({user})
-          if (user.role === 'RETAILER') {
-            navigate('/retailer');
-          } else if (user.role === "SUPPLIER") {
-            navigate('/suppliers');
-          } else if (user.role === 'ADMIN') {
-            console.log("Admin")
-            navigate('/admin');
-          }else if (user.role === 'INVENTORY') {
-            console.log("Admin")
-            navigate('/inventory');
-          }
-          setIsLoginView(true);
-          // You can also handle redirection using React Router if applicable
-        } else {
-          // Handle error response
-          const errorDa = await response.json();
-          console.log(errorDa['Error Message'])
-          setError(errorDa['Error Message'] || 'Failed to authenticate or register.');
-
-          console.error('Failed to authenticate or register.');
-        }
-      } catch (error) {
-        setError('Error during API call: ' + error.message);
-        console.error('Error during API call:', error);
-      }
+    if (!validateForm()) {
+      return; // Do not proceed if the form is not valid
     }
-    // const apiUrl = isLoginView ? 'https://saichaitanyamuthyala.com/user/login ' : 'https://saichaitanyamuthyala.com/user/adduser';
+  
+    const apiUrl = 'https://saichaitanyamuthyala.com/user/login';
+    const LoginRequest = {
+      username: formData.email,
+      password: formData.password,
+    };
+  
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(LoginRequest),
+      });
+  
+      if (response.ok) {
+        const user = await response.json();
+        const existingCart = JSON.parse(localStorage.getItem('cartItems')) || []; // Preserve existing cartItems
+  
+        localStorage.setItem('userId', formData.email);
+        localStorage.setItem('role', user.role);
+        localStorage.setItem('cartItems', JSON.stringify(existingCart)); // Restore cartItems
+        localStorage.setItem('oldCartItemd',JSON.stringify(existingCart));
+  
+        // Navigate based on role
+        if (user.role === 'RETAILER') {
+          navigate('/retailer');
+        } else if (user.role === 'SUPPLIER') {
+          navigate('/suppliers');
+        } else if (user.role === 'ADMIN') {
+          navigate('/admin');
+        } else if (user.role === 'INVENTORY') {
+          navigate('/inventory');
+        }
+  
+        setIsLoginView(true); // Reset view to login
+      } else {
+        const errorData = await response.json();
+        setError(errorData['Error Message'] || 'Failed to authenticate.');
+      }
+    } catch (error) {
+      setError('Error during API call: ' + error.message);
+    }
   };
-
+  
   const handleSubmitRegister=async(e)=>{
     if(rpw!==formData.password){
       setError(1);
