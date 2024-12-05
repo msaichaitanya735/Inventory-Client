@@ -9,7 +9,7 @@ const AddCategoryForm = ({ isOpen, onRequestClose }) => {
   const handleAddCategory = () => {
     axios
       .post(
-        `https://saichaitanyamuthyala.com/inventory/addcategory?name=${categoryName}&returnable=${returnable}`
+        `http://localhost:8080/inventory/addcategory?name=${categoryName}&returnable=${returnable}`
       )
       .then(() => {
         onRequestClose();

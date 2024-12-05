@@ -29,7 +29,7 @@ const PaymentPage = () => {
   const handlePayment = async () => {
     console.log('here');
     try {
-      const api = `https://saichaitanyamuthyala.com/inventory/acceptquotaion?purchaseId=${quotation.purchaseID}&quotationId=${quotation.quotationID}`;
+      const api = `http://localhost:8080/inventory/acceptquotaion?purchaseId=${quotation.purchaseID}&quotationId=${quotation.quotationID}`;
       const response = await axios.post(api);
       console.log(response.data);
     } catch (error) {

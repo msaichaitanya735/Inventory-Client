@@ -149,7 +149,7 @@ const HomePage = () => {
       return; // Do not proceed if the form is not valid
     }
   
-    const apiUrl = 'https://saichaitanyamuthyala.com/user/login';
+    const apiUrl = 'http://localhost:8080/user/login';
     const LoginRequest = {
       username: formData.email,
       password: formData.password,
@@ -166,7 +166,7 @@ const HomePage = () => {
   
       if (response.ok) {
         const user = await response.json();
-        const existingCart = JSON.parse(localStorage.getItem('cartItems')) || []; // Preserve existing cartItems
+        const existingCart = JSON.parse(localStorage.getItem('cartData')) || []; // Preserve existing cartItems
   
         localStorage.setItem('userId', formData.email);
         localStorage.setItem('role', user.role);
@@ -194,6 +194,7 @@ const HomePage = () => {
     }
   };
   
+
   const handleSubmitRegister=async(e)=>{
     if(rpw!==formData.password){
       setError(1);
@@ -207,7 +208,7 @@ const HomePage = () => {
       contact: formData.contactNumber,
       role: formData.userType.toUpperCase() 
     }
-    const apiUrl = 'https://saichaitanyamuthyala.com/user/adduser';
+    const apiUrl = 'http://localhost:8080/user/adduser';
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',

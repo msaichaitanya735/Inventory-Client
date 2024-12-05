@@ -8,12 +8,12 @@ const InventoryGrid = () => {
 
   useEffect(() => {
     // Fetch inventory data
-    axios.get('https://saichaitanyamuthyala.com/inventory/fetchinventory')
+    axios.get('http://localhost:8080/inventory/fetchinventory')
       .then(response => setInventory(response.data))
       .catch(error => console.error('Error fetching inventory:', error));
 
     // Fetch all products
-    axios.get('https://saichaitanyamuthyala.com/inventory/fetchallproducts')
+    axios.get('http://localhost:8080/inventory/fetchallproducts')
       .then(response => setProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);

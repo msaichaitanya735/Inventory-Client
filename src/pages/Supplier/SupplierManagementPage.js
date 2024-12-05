@@ -26,7 +26,7 @@ const SupplierManagementPage = () => {
   // Function to fetch supplier products from the backend
   const fetchSupplierProducts = async (userId) => {
     try {
-      const response = await axios.get(`https://saichaitanyamuthyala.com/inventory/getsupplier?supplierId=${userId}`);
+      const response = await axios.get(`http://localhost:8080/inventory/getsupplier?supplierId=${userId}`);
       setSupplierProducts(response.data.products || []);  // Set the list of supplier's products
     } catch (error) {
       console.error('Error fetching supplier products:', error);
@@ -36,7 +36,7 @@ const SupplierManagementPage = () => {
   // Function to fetch all products that are not yet added to the supplier's list
   const fetchAllProducts = async (userId) => {
     try {
-      const response = await axios.get(`https://saichaitanyamuthyala.com/order/getproductsnotinsupplier?supplierId=${userId}`);
+      const response = await axios.get(`http://localhost:8080/order/getproductsnotinsupplier?supplierId=${userId}`);
       setAllProducts(response.data || []);  // Set all products that are available to be added
     } catch (error) {
       console.error('Error fetching all products:', error);
@@ -73,7 +73,7 @@ const SupplierManagementPage = () => {
 
     try {
       // Add the product to the supplier's product list via API call
-      await axios.post(`https://saichaitanyamuthyala.com/order/addsupplierproduct?supplierId=${userId}&productId=${productId}`);
+      await axios.post(`http://localhost:8080/order/addsupplierproduct?supplierId=${userId}&productId=${productId}`);
 
       // Manually update the supplierProducts state with the new product
       setSupplierProducts(prevProducts => [
@@ -92,7 +92,7 @@ const SupplierManagementPage = () => {
 
   const handleDeleteAllProducts = async () => {
     try {
-      await axios.delete('https://saichaitanyamuthyala.com/inventory/deleteproductsfromsupplier', {
+      await axios.delete('http://localhost:8080/inventory/deleteproductsfromsupplier', {
         params: { supplierId: userId }
       });
       setSupplierProducts([]); // Clear the supplier products list after deletion
@@ -102,7 +102,7 @@ const SupplierManagementPage = () => {
   };
 
   const handleOpenMessages = () => {
-    axios.get(`https://saichaitanyamuthyala.com/inventory/getmessagesinventory`)
+    axios.get(`http://localhost:8080/inventory/getmessagesinventory`)
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
     setIsMessagesModalOpen(true);

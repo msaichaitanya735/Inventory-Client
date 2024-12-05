@@ -9,34 +9,12 @@ const RetailerPage = () => {
     const navigate = useNavigate();
     const [inventory, setInventory] = useState([]);
     const [products, setProducts] = useState([]);
-    const [orderHistory, setOrderHistory] = useState([]);
     const [isCartModalOpen, setCartModalOpen] = useState(false);
-    const [isReturnModalOpen, setReturnModalOpen] = useState(false);
-    const [cartItems, setCartItems] = useState([]);
-
-    // Load cartItems from localStorage on initial render
-    useEffect(() => {
-        const storedCartItems = JSON.parse(localStorage.getItem('oldCartItemd'))? JSON.parse(localStorage.getItem('oldCartItemd')):JSON.parse(localStorage.getItem('cartItems')) || [];
-        setCartItems(storedCartItems);
-
-        // Fetch inventory and products data
-        axios.get('https://saichaitanyamuthyala.com/inventory/fetchinventory')
-            .then(response => setInventory(response.data))
-            .catch(error => console.error('Error fetching inventory:', error));
-
-        axios.get('https://saichaitanyamuthyala.com/inventory/fetchallproducts')
-            .then(response => setProducts(response.data))
-            .catch(error => console.error('Error fetching products:', error));
-
-        axios.get('/api/orders/history')
-            .then(response => setOrderHistory(response.data))
-            .catch(error => console.error('Error fetching order history:', error));
-    }, []);
-
-    // Update localStorage whenever cartItems change
-    useEffect(() => {
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }, [cartItems]);
+    const retailerID = localStorage.getItem('userId');
+    const [cartItems, setCartItems] = useState(() => {
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || {};
+        return cartData[retailerID] || [];
+    });
 
     const openCartModal = () => {
         setCartModalOpen(true);
@@ -46,17 +24,26 @@ const RetailerPage = () => {
         setCartModalOpen(false);
     };
 
-    const openReturnModal = () => {
-        setReturnModalOpen(true);
-    };
-
-    const closeReturnModal = () => {
-        setReturnModalOpen(false);
+    const updateLocalStorage = (updatedCart) => {
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || {};
+        cartData[retailerID] = updatedCart;
+        localStorage.setItem('cartData', JSON.stringify(cartData));
     };
 
     const updateCartItems = (newCartItems) => {
         setCartItems(newCartItems);
+        updateLocalStorage(newCartItems);
     };
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/inventory/fetchinventory')
+            .then(response => setInventory(response.data))
+            .catch(error => console.error('Error fetching inventory:', error));
+
+        axios.get('http://localhost:8080/inventory/fetchallproducts')
+            .then(response => setProducts(response.data))
+            .catch(error => console.error('Error fetching products:', error));
+    }, []);
 
     const InventoryList = inventory.map((item1) => {
         const matchingItem = products.find((item2) => item2.productID === item1.productID);
@@ -69,35 +56,33 @@ const RetailerPage = () => {
     const addToCart = (product) => {
         const existingItem = cartItems.find((item) => item.productId === product.productID);
 
+        let updatedCart;
         if (existingItem) {
-            setCartItems((prevItems) =>
-                prevItems.map((item) =>
-                    item.productId === product.productID
-                        ? { ...item, quantity: item.quantity + 1, totalPrice: product.price * (item.quantity + 1) }
-                        : item
-                )
+            updatedCart = cartItems.map((item) =>
+                item.productId === product.productID ? { ...item, quantity: item.quantity + 1 } : item
             );
         } else {
-            setCartItems((prevItems) => [
-                ...prevItems,
+            updatedCart = [
+                ...cartItems,
                 {
                     productId: product.productID,
                     name: product.name,
                     price: product.price,
                     quantity: 1,
-                    totalPrice: product.price * 1.1,
                     returnable: product.returnable,
                 },
-            ]);
+            ];
         }
+
+        setCartItems(updatedCart);
+        updateLocalStorage(updatedCart);
     };
 
-    const totalCartPrice = cartItems.reduce((total, item) => total + item.totalPrice, 0);
+    const totalCartPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     const handleLogOut = () => {
-        // Only clear authentication-related data, not cartItems
-        localStorage.removeItem('userToken');
         navigate('/');
+        // localStorage.clear();
     };
 
     return (
@@ -110,7 +95,9 @@ const RetailerPage = () => {
                      <a href="#" className="nav-link" onClick={handleLogOut}>
                         Logout
                     </a>
-                    <Link to="/orderhistory">History</Link>
+                    <Link to="/orderhistory">
+                        History
+                    </Link>
                     <i className="fas fa-shopping-cart action-btn" onClick={openCartModal}>Cart</i>
                 </div>
             </div>
@@ -120,8 +107,7 @@ const RetailerPage = () => {
                 isOpen={isCartModalOpen}
                 onClose={closeCartModal}
                 cartItems={cartItems}
-                totalCartPrice={Math.round(totalCartPrice * 100) / 100}
-                updateCartItems={updateCartItems} 
+                updateCartItems={updateCartItems}
             />
             <div className="product-list">
                 {InventoryList.map(item => {
@@ -133,11 +119,10 @@ const RetailerPage = () => {
                         <div key={item.productID} className={`product-card ${item.quantity === 0 ? 'disabled' : ''}`}>
                             <img src={item.imgURL} alt={item.name} className="product-img" />
                             <h3>{item.name}</h3>
-                            <p>{item.description}</p>
                             <p>Price: ${item.price}</p>
                             <p>Quantity in Cart: {quantityInCart}</p>
                             {item.returnable === 'true' && (
-                                <p className="return-text" onClick={openReturnModal}>Return available</p>
+                                <p className="return-text">Return available</p>
                             )}
                             <button
                                 className="action-btn"
@@ -150,16 +135,6 @@ const RetailerPage = () => {
                     );
                 })}
             </div>
-
-            {isReturnModalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>Return Policy</h2>
-                        <p>This product has a return option.</p>
-                        <button onClick={closeReturnModal}>Close</button>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };
