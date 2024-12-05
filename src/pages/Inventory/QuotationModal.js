@@ -11,7 +11,7 @@ const QuotationModal = ({ product, onClose }) => {
   useEffect(() => {
     const fetchQuotations = async () => {
       try {
-        const api = `http://44.203.214.233:8080/inventory/viewquotations?purchaseId=${product[0].purchaseID}`;
+        const api = `http://localhost:8080/inventory/viewquotations?purchaseId=${product[0].purchaseID}`;
         const response = await axios.get(api);
         setQuotations(response.data);
 
@@ -23,7 +23,7 @@ const QuotationModal = ({ product, onClose }) => {
 
         // Fetch supplier names in parallel
         const promises = uniqueSupplierIds.map(supplierId =>
-          axios.get(`http://44.203.214.233:8080/inventory/getsupplier?supplierId=${supplierId}`)
+          axios.get(`http://localhost:8080/inventory/getsupplier?supplierId=${supplierId}`)
         );
 
         const supplierResponses = await Promise.all(promises);
@@ -43,7 +43,7 @@ const QuotationModal = ({ product, onClose }) => {
 
   const handleAcceptQuotation = async (quotation) => {
     try {
-      const api = `http://44.203.214.233:8080/inventory/acceptquotaion?purchaseId=${quotation.purchaseID}&quotationId=${quotation.quotationID}`;
+      const api = `http://localhost:8080/inventory/acceptquotaion?purchaseId=${quotation.purchaseID}&quotationId=${quotation.quotationID}`;
       const response = await axios.post(api);
       console.log(response.data);
     } catch (error) {

@@ -153,7 +153,7 @@ const HomePage = () => {
     }
     
     if(isLoginView) {
-      const apiUrl = 'http://44.203.214.233:8080/user/login';
+      const apiUrl = 'http://localhost:8080/user/login';
       const LoginRequest = {
         username: formData.email,
         password: formData.password
@@ -198,7 +198,7 @@ const HomePage = () => {
         console.error('Error during API call:', error);
       }
     }
-    // const apiUrl = isLoginView ? 'http://44.203.214.233:8080/user/login ' : 'http://44.203.214.233:8080/user/adduser';
+    // const apiUrl = isLoginView ? 'http://localhost:8080/user/login ' : 'http://localhost:8080/user/adduser';
   };
 
   const handleSubmitRegister=async(e)=>{
@@ -214,7 +214,7 @@ const HomePage = () => {
       contact: formData.contactNumber,
       role: formData.userType.toUpperCase() 
     }
-    const apiUrl = 'http://44.203.214.233:8080/user/adduser';
+    const apiUrl = 'http://localhost:8080/user/adduser';
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -306,7 +306,7 @@ const HomePage = () => {
                   <p>
                     {/* Additional register-specific fields if needed */}
                     <label htmlFor="contactNumber" style={labelStyle}>
-                      Door No:
+                      Address:
                     </label>
                     <input
                       type="text"
@@ -315,7 +315,7 @@ const HomePage = () => {
                       name="address"
                       onChange={handleInputChange}
                     />
-                    <label htmlFor="contactNumber" style={labelStyle}>
+                    {/* <label htmlFor="contactNumber" style={labelStyle}>
                       State:
                     </label>
                     <input
@@ -335,7 +335,7 @@ const HomePage = () => {
                       name="address"
                       onChange={handleInputChange}
                     />
-                    
+                     */}
                     
                     {formErrors.contactNumber && <span style={{ color: 'red' }}>{formErrors.contactNumber}</span>}
                   </p>

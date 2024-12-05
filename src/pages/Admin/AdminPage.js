@@ -1,10 +1,9 @@
-// src/pages/AdminPage.js
 import React, { useState } from 'react';
 import UserGrid from './UserGrid';
 import CategoryGrid from './CategoryGrid';
 import UnauthorizedUserGrid from './UnauthorizedUserGrid';
-import { useNavigate } from 'react-router-dom';
 import ProductGrid from './ProductGrid';
+import { useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 
 const AdminPage = () => {
@@ -20,14 +19,26 @@ const AdminPage = () => {
     navigate('/');
   };
 
+  const handleManageInventory = () => {
+    navigate('/inventory'); // Redirect to the inventory page
+  };
+
   return (
     <div className="admin-container">
       <div className="header">
-        <h1 style={{color:'black',paddingLeft:'1vw'}}>Welcome, Admin!</h1>
+        <h1 style={{ color: 'black', paddingLeft: '1vw' }}>Welcome, Admin!</h1>
         <button className="logout-button" onClick={handleLogOut}>Log Out</button>
       </div>
 
-      <div className="tab-container" style={{color:'black'}}>
+      {/* Manage Inventory Button */}
+      <div className="manage-inventory-container">
+        <button className="manage-inventory-button" onClick={handleManageInventory}>
+          Manage Inventory
+        </button>
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="tab-container" style={{ color: 'black' }}>
         <button
           className={activeTab === 'users' ? 'active' : ''}
           onClick={() => handleTabChange('users')}
@@ -53,6 +64,8 @@ const AdminPage = () => {
           Pending Approval
         </button>
       </div>
+
+      {/* Tab Content */}
       <div className="tab-content">
         {activeTab === 'users' && <UserGrid />}
         {activeTab === 'products' && <ProductGrid />}

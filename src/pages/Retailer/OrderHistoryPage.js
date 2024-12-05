@@ -12,7 +12,7 @@ const OrderHistoryPage = () => {
 
   useEffect(() => {
     // Fetch order history data from the backend
-    axios.get(`http://44.203.214.233:8080/order/getorders?retailerId=${localStorage.getItem('userId')}`)
+    axios.get(`http://localhost:8080/order/getorders?retailerId=${localStorage.getItem('userId')}`)
       .then(response => {
         setOrderHistory(response.data);
 
@@ -21,7 +21,7 @@ const OrderHistoryPage = () => {
         const fetchProductDetails = async () => {
           const productResponses = await Promise.all(
             productIds.map(productId =>
-              axios.get(`http://44.203.214.233:8080/inventory/getproduct?productId=${productId}`)
+              axios.get(`http://localhost:8080/inventory/getproduct?productId=${productId}`)
             )
           );
           // Map product details to their IDs for quick access
@@ -43,7 +43,7 @@ const OrderHistoryPage = () => {
 
   const handleInitiateReturn = async (orderId) => {
     try {
-      const response = await axios.put(`http://44.203.214.233:8080/order/initiateReturn`, null, {
+      const response = await axios.put(`http://localhost:8080/order/initiateReturn`, null, {
         params: { orderId }
       });
       setModalMessage("Return has been initiated successfully.");

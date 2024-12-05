@@ -15,7 +15,7 @@ const UserGrid = () => {
   useEffect(() => {
     // Fetch users from the backend or your data source
     // Replace this with the actual API endpoint for fetching users
-    axios.get('http://44.203.214.233:8080/user/getallusers')
+    axios.get('http://localhost:8080/user/getallusers')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
       console.log(users)
@@ -50,7 +50,7 @@ const UserGrid = () => {
 
   const handleDeleteClick = (userID) => {
     // Make an API call to delete the user
-    axios.delete(`http://44.203.214.233:8080/user/deleteuser?requestId=${userID}`)
+    axios.delete(`http://localhost:8080/user/deleteuser?requestId=${userID}`)
       .then(() => {
         // Remove the user from the local state
         setUsers(users.filter(user => user.userID !== userID));
@@ -61,7 +61,7 @@ const UserGrid = () => {
 
   const handleSaveChangesClick = (userID) => {
     // Make an API call to update the user data
-    const api = `http://44.203.214.233:8080/user/updateuser?userId=${userID}&name=${editableUser.name}&contact=${editableUser.contact}`
+    const api = `http://localhost:8080/user/updateuser?userId=${userID}&name=${editableUser.name}&contact=${editableUser.contact}`
     axios.put(api)
       .then(response => {
         // Update the local state with the updated user data
@@ -82,24 +82,14 @@ const UserGrid = () => {
               <>
                 <h3>{user.userID}</h3>
 
-                <label>Name:</label>
-                <input
-                  type="text"
-                  value={editableUser.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                />
+                <p>Name: {user.name}</p>
                 <label>Contact:</label>
                 <input
                   type="text"
                   value={editableUser.contact}
                   onChange={(e) => handleInputChange('contact', e.target.value)}
                 />
-                <label>User Type:</label>
-                <input
-                  type="text"
-                  value={editableUser.userType}
-                  onChange={(e) => handleInputChange('userType', e.target.value)}
-                />
+                <p>User Type: {user.role}</p>
                 <button onClick={() => handleDeleteClick(user.userID)}>Delete</button>
                 <button onClick={() => handleSaveChangesClick(user.userID)}>Submit Changes</button>
               </>

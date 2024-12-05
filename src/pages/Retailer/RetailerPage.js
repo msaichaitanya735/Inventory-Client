@@ -36,11 +36,11 @@ const RetailerPage = () => {
     };
 
     useEffect(() => {
-        axios.get('http://44.203.214.233:8080/inventory/fetchinventory')
+        axios.get('http://localhost:8080/inventory/fetchinventory')
             .then(response => setInventory(response.data))
             .catch(error => console.error('Error fetching inventory:', error));
 
-        axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
+        axios.get('http://localhost:8080/inventory/fetchallproducts')
             .then(response => setProducts(response.data))
             .catch(error => console.error('Error fetching products:', error));
 
@@ -130,7 +130,6 @@ const RetailerPage = () => {
                             <p>{item.description}</p>
                             <p>Price: ${item.price}</p>
                             <p>Quantity in Cart: {quantityInCart}</p>
-                            <p>Available in Inventory: {item.quantity}</p>
                             {item.returnable == 'true' && (
                                 <p className="return-text" onClick={openReturnModal}>Return available</p>
                             )}

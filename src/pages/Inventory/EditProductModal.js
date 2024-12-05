@@ -19,7 +19,7 @@ const EditProductModal = ({ product, onClose }) => {
 
   const handleSaveEdit = () => {
     console.log({ editedProduct });
-    const api = `http://44.203.214.233:8080/inventory/addproducttoinventory?productId=${editedProduct.productId}&price=${editedProduct.price}&reorderPoint=${editedProduct.reorderpoint}&units=${editedProduct.units}`;
+    const api = `http://localhost:8080/inventory/addproducttoinventory?productId=${editedProduct.productId}&price=${editedProduct.price}&reorderPoint=${editedProduct.reorderpoint}&units=${editedProduct.units}`;
     axios.post(api)
       .then(response => {
         // Handle success response

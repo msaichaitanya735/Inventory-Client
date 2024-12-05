@@ -1,97 +1,47 @@
-// src/components/AddCategoryForm.js
 import React, { useState } from 'react';
-import Modal from 'react-modal';
+// import './AddCategoryForm.css'; // Optional: Your custom styles
 import axios from 'axios';
+
 const AddCategoryForm = ({ isOpen, onRequestClose }) => {
   const [categoryName, setCategoryName] = useState('');
-  const [description, setDescription] = useState('');
+  const [returnable, setReturnable] = useState('true');
 
   const handleAddCategory = () => {
-
-    axios.post(`http://44.203.214.233:8080/inventory/addcategory?name=${categoryName}`)
-    .then(res=>console.log(res.data))
-    // Add logic to send data to the server or update state
-    console.log('Category Added:', { categoryName, description });
-    // Reset form fields
-    setCategoryName('');
-    setDescription('');
-    // Close the modal
-    onRequestClose();
+    axios
+      .post(
+        `http://localhost:8080/inventory/addcategory?name=${categoryName}&returnable=${returnable}`
+      )
+      .then(() => {
+        onRequestClose();
+        window.location.reload();
+      })
+      .catch((error) => console.error('Error adding category:', error));
   };
 
-  // Inline styles
-  const modalContentStyle = {
-    width: '50%',
-    height: '70%',
-    margin: 'auto',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    padding: '20px',
-  };
-
-  const labelStyle = {
-    display: 'block',
-    marginBottom: '8px',
-  };
-
-  const inputStyle = {
-    width: '100%',
-    padding: '8px',
-    marginBottom: '16px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#4caf50',
-    color: '#fff',
-    padding: '10px',
-    border: 'none',
-    cursor: 'pointer',
-  };
+  if (!isOpen) return null;
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      contentLabel="Add Category Modal"
-      style={{
-        overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        },
-        content: modalContentStyle,
-      }}
-    >
-      <div>
+    <div className="modal">
+      <div className="modal-content">
         <h2>Add Category</h2>
-        <form>
-          <label htmlFor="categoryName" style={labelStyle}>
-            Category Name:
-          </label>
-          <input
-            type="text"
-            id="categoryName"
-            value={categoryName}
-            onChange={(e) => setCategoryName(e.target.value)}
-            style={inputStyle}
-          />
-
-          <label htmlFor="description" style={labelStyle}>
-            Description:
-          </label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            style={inputStyle}
-          />
-
-          <button type="button" onClick={handleAddCategory} style={buttonStyle}>
-            Add Category
-          </button>
-        </form>
+        <label>Category Name:</label>
+        <input
+          type="text"
+          value={categoryName}
+          onChange={(e) => setCategoryName(e.target.value)}
+        />
+        <label>Returnable:</label>
+        <select
+          value={returnable}
+          onChange={(e) => setReturnable(e.target.value)}
+        >
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+        <button onClick={handleAddCategory}>Add</button>
+        <button onClick={onRequestClose}>Close</button>
       </div>
-    </Modal>
+    </div>
   );
 };
 

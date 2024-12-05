@@ -25,21 +25,21 @@ const InventoryPage = () => {
 
   useEffect(() => {
     // Fetch inventory data from the backend
-    axios.get('http://44.203.214.233:8080/inventory/fetchallcategories')
+    axios.get('http://localhost:8080/inventory/fetchallcategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
 
-    axios.get('http://44.203.214.233:8080/inventory/fetchinventory')
+    axios.get('http://localhost:8080/inventory/fetchinventory')
       .then(response => setInventory(response.data))
       .catch(error => console.error('Error fetching inventory:', error));
 
-    axios.get('http://44.203.214.233:8080/inventory/fetchallproducts')
+    axios.get('http://localhost:8080/inventory/fetchallproducts')
       .then(response => setProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
   useEffect(() => {
-    axios.get(`http://44.203.214.233:8080/inventory/fetchinventorybasedoncategory?categoryName=${productCategory}`)
+    axios.get(`http://localhost:8080/inventory/fetchinventorybasedoncategory?categoryName=${productCategory}`)
       .then((res) => console.log(res.data));
   }, [productCategory]);
 
@@ -84,7 +84,7 @@ const InventoryPage = () => {
   };
 
   const handleDelete = (productId) => {
-    const api = `http://44.203.214.233:8080/inventory/deletefrominventory?productId=${productId}`;
+    const api = `http://localhost:8080/inventory/deletefrominventory?productId=${productId}`;
     axios.delete(api)
       .then(res => console.log('Deleted successfully'))
       .catch(error => console.error('Error deleting product:', error));
@@ -96,7 +96,7 @@ const InventoryPage = () => {
   };
 
   const handleSaveEdit = (editedProduct) => {
-    axios.put(`http://44.203.214.233:8080/inventory/addproducttoinventory`, editedProduct)
+    axios.put(`http://localhost:8080/inventory/addproducttoinventory`, editedProduct)
       .then(response => {
         setInventory(response.data);
         setIsEditModalOpen(false);
@@ -105,7 +105,7 @@ const InventoryPage = () => {
   };
 
   const handleOpenMessages = () => {
-    axios.get('http://44.203.214.233:8080/inventory/getmessagesinventory')
+    axios.get('http://localhost:8080/inventory/getmessagesinventory')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 

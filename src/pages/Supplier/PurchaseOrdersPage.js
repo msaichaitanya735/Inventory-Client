@@ -13,7 +13,7 @@ const PurchaseOrdersPage = () => {
       try {
         // Fetch purchase orders from the backend
         // Replace with actual API endpoint
-        const response = await axios.get(`http://44.203.214.233:8080/order/getpurchases?supplierId=${localStorage.getItem('userId')}`);
+        const response = await axios.get(`http://localhost:8080/order/getpurchases?supplierId=${localStorage.getItem('userId')}`);
         setPurchaseOrders(response.data || []); // Ensure it's an array or use an empty array if undefined
       } catch (error) {
         console.error('Error fetching purchase orders:', error);
@@ -24,7 +24,7 @@ const PurchaseOrdersPage = () => {
       try {
         // Fetch all products from the backend
         // Replace with actual API endpoint
-        const response = await axios.get('http://44.203.214.233:8080/inventory/fetchallproducts');
+        const response = await axios.get('http://localhost:8080/inventory/fetchallproducts');
         setProducts(response.data || []); // Ensure it's an array or use an empty array if undefined
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -39,7 +39,7 @@ const PurchaseOrdersPage = () => {
     try {
       // Make an API call to update the purchase order with the accepted price
       // Replace with actual API endpoint and logic
-      const api = `http://44.203.214.233:8080/order/addquotationforpurchase?purchaseId=${purchaseID}&supplierId=${localStorage.getItem('userId')}&price=${quotationPrice}`;
+      const api = `http://localhost:8080/order/addquotationforpurchase?purchaseId=${purchaseID}&supplierId=${localStorage.getItem('userId')}&price=${quotationPrice}`;
       const response = await axios.post(api);
       // Update the local state with the updated purchase orders
       setPurchaseOrders(response.data || []);
