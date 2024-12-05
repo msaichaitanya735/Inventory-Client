@@ -15,7 +15,7 @@ const CategoryGrid = () => {
   // Fetch categories on component load
   useEffect(() => {
     axios
-      .get('http://localhost:8080/inventory/fetchallcategories')
+      .get('https://saichaitanyamuthyala.com/inventory/fetchallcategories')
       .then((response) => setCategoryData(response.data))
       .catch((error) => console.error('Error fetching categories:', error));
   }, []);
@@ -54,7 +54,7 @@ const CategoryGrid = () => {
   const handleSaveClick = (categoryID) => {
     axios
       .put(
-        `http://localhost:8080/inventory/updatecategory?categoryID=${categoryID}&name=${editableCategory.name}&returnable=${editableCategory.returnable}`
+        `https://saichaitanyamuthyala.com/inventory/updatecategory?categoryID=${categoryID}&name=${editableCategory.name}&returnable=${editableCategory.returnable}`
       )
       .then(() => {
         setEditableCategoryID(null); // Exit edit mode

@@ -153,7 +153,7 @@ const HomePage = () => {
     }
     
     if(isLoginView) {
-      const apiUrl = 'http://localhost:8080/user/login';
+      const apiUrl = 'https://saichaitanyamuthyala.com/user/login';
       const LoginRequest = {
         username: formData.email,
         password: formData.password
@@ -198,7 +198,7 @@ const HomePage = () => {
         console.error('Error during API call:', error);
       }
     }
-    // const apiUrl = isLoginView ? 'http://localhost:8080/user/login ' : 'http://localhost:8080/user/adduser';
+    // const apiUrl = isLoginView ? 'https://saichaitanyamuthyala.com/user/login ' : 'https://saichaitanyamuthyala.com/user/adduser';
   };
 
   const handleSubmitRegister=async(e)=>{
@@ -214,7 +214,7 @@ const HomePage = () => {
       contact: formData.contactNumber,
       role: formData.userType.toUpperCase() 
     }
-    const apiUrl = 'http://localhost:8080/user/adduser';
+    const apiUrl = 'https://saichaitanyamuthyala.com/user/adduser';
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',

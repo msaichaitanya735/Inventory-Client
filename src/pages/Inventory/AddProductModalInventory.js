@@ -14,7 +14,7 @@ const AddProductModalInventory = ({ isOpen, onRequestClose, onAddProduct }) => {
   const [productUnitsOfMeasure, setProductUnitsOfMeasure] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:8080/inventory/fetchallcategories')
+    axios.get('https://saichaitanyamuthyala.com/inventory/fetchallcategories')
       .then(response => setCategories(response.data))
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
@@ -32,7 +32,7 @@ const AddProductModalInventory = ({ isOpen, onRequestClose, onAddProduct }) => {
     onAddProduct(newProduct);
 
     // API URL for adding a product
-    const apiUrl = `http://localhost:8080/inventory/addproduct?name=${productName}&description=${productDescription}&categoryId=${productCategory}&imgURL=${productImageURL}`;
+    const apiUrl = `https://saichaitanyamuthyala.com/inventory/addproduct?name=${productName}&description=${productDescription}&categoryId=${productCategory}&imgURL=${productImageURL}`;
 
     // Make POST request to add product
     axios.post(apiUrl)
@@ -40,7 +40,7 @@ const AddProductModalInventory = ({ isOpen, onRequestClose, onAddProduct }) => {
         console.log('Product added successfully:', response.data);
         const prodId =  response.data['productID']
         console.log(prodId)
-        const api1 = `http://localhost:8080/inventory/addproducttoinventory?productId=${prodId}&price=${price}&reorderPoint=${reorderpoint}&units=${units}`;
+        const api1 = `https://saichaitanyamuthyala.com/inventory/addproducttoinventory?productId=${prodId}&price=${price}&reorderPoint=${reorderpoint}&units=${units}`;
         axios.post(api1)
             .then(response => {
                 console.log('Done');

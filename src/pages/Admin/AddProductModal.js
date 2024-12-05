@@ -13,7 +13,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onAddProduct }) => {
   useEffect(() => {
     // Fetch all categories
     axios
-      .get('http://localhost:8080/inventory/fetchallcategories')
+      .get('https://saichaitanyamuthyala.com/inventory/fetchallcategories')
       .then((response) => setCategories(response.data))
       .catch((error) => console.error('Error fetching categories:', error));
   }, []);
@@ -42,7 +42,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onAddProduct }) => {
 
     onAddProduct(newProduct);
 
-    const apiUrl = `http://localhost:8080/inventory/addproduct?name=${productName}&description=${productDescription}&categoryId=${productCategory}&imgURL=${productImageURL}&returnable=${returnable}`;
+    const apiUrl = `https://saichaitanyamuthyala.com/inventory/addproduct?name=${productName}&description=${productDescription}&categoryId=${productCategory}&imgURL=${productImageURL}&returnable=${returnable}`;
     axios
       .post(apiUrl)
       .then((response) => {

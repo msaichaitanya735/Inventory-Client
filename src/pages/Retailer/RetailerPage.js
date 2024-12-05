@@ -36,11 +36,11 @@ const RetailerPage = () => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8080/inventory/fetchinventory')
+        axios.get('https://saichaitanyamuthyala.com/inventory/fetchinventory')
             .then(response => setInventory(response.data))
             .catch(error => console.error('Error fetching inventory:', error));
 
-        axios.get('http://localhost:8080/inventory/fetchallproducts')
+        axios.get('https://saichaitanyamuthyala.com/inventory/fetchallproducts')
             .then(response => setProducts(response.data))
             .catch(error => console.error('Error fetching products:', error));
 

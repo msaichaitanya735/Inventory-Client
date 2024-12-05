@@ -18,15 +18,15 @@ const QuotationsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:8080/inventory/viewpurchases')
+    axios.get('https://saichaitanyamuthyala.com/inventory/viewpurchases')
       .then(response => setPurchases(response.data))
       .catch(error => console.error('Error fetching purchases:', error));
 
-    axios.get('http://localhost:8080/inventory/fetchallproducts')
+    axios.get('https://saichaitanyamuthyala.com/inventory/fetchallproducts')
       .then(response => setAllProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
 
-    axios.get('http://localhost:8080/inventory/viewquotations')
+    axios.get('https://saichaitanyamuthyala.com/inventory/viewquotations')
       .then(response => setQuotations(response.data))
       .catch(error => console.error('Error fetching quotations:', error));
   }, []);
@@ -71,7 +71,7 @@ const QuotationsPage = () => {
   };
 
   const handleOpenMessages = () => {
-    axios.get('http://localhost:8080/inventory/getmessagesinventory')
+    axios.get('https://saichaitanyamuthyala.com/inventory/getmessagesinventory')
       .then(response => setMessages(response.data))
       .catch(error => console.error('Error fetching messages:', error));
 
