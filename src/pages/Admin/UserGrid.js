@@ -15,7 +15,7 @@ const UserGrid = () => {
   useEffect(() => {
     // Fetch users from the backend or your data source
     // Replace this with the actual API endpoint for fetching users
-    axios.get('http://localhost:8080/user/getallusers')
+    axios.get('https://saichaitanyamuthyala.com/user/getallusers')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
       console.log(users)
@@ -50,7 +50,7 @@ const UserGrid = () => {
 
   const handleDeleteClick = (userID) => {
     // Make an API call to delete the user
-    axios.delete(`http://localhost:8080/user/deleteuser?requestId=${userID}`)
+    axios.delete(`https://saichaitanyamuthyala.com/user/deleteuser?requestId=${userID}`)
       .then(() => {
         // Remove the user from the local state
         setUsers(users.filter(user => user.userID !== userID));
@@ -61,7 +61,7 @@ const UserGrid = () => {
 
   const handleSaveChangesClick = (userID) => {
     // Make an API call to update the user data
-    const api = `http://localhost:8080/user/updateuser?userId=${userID}&name=${editableUser.name}&contact=${editableUser.contact}`
+    const api = `https://saichaitanyamuthyala.com/user/updateuser?userId=${userID}&name=${editableUser.name}&contact=${editableUser.contact}`
     axios.put(api)
       .then(response => {
         // Update the local state with the updated user data

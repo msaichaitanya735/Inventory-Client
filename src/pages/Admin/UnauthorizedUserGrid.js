@@ -9,14 +9,14 @@ const UnauthorizedUserGrid = () => {
   useEffect(() => {
     // Fetch unauthorized users from the backend or your data source
     // Replace this with the actual API endpoint for fetching unauthorized users
-    axios.get('http://localhost:8080/inventory/getallnonverifiedsupplier')
+    axios.get('https://saichaitanyamuthyala.com/inventory/getallnonverifiedsupplier')
       .then(response => setUnauthorizedUsers(response.data))
       .catch(error => console.error('Error fetching unauthorized users:', error));
   }, []);
 
   const handleApproveClick = (username) => {
     // Make an API call to update the approval status
-    axios.put(`http://localhost:8080/user/grantaccess?&requestId=${username}`)
+    axios.put(`https://saichaitanyamuthyala.com/user/grantaccess?&requestId=${username}`)
       .then(response => {
         // Update the local state with the updated user data
         setApprovedUsers([...approvedUsers, username]);

@@ -7,7 +7,7 @@ const PurchaseOrderRow = ({ product, quantity, onAccept }) => {
     console.log({product})
   const handleAccept = () => {
     console.log({product})
-    // const api = `http://localhost:8080/order/addquotationforpurchase?purchaseId=${}&supplierId=${}&price=${}`
+    // const api = `https://saichaitanyamuthyala.com/order/addquotationforpurchase?purchaseId=${}&supplierId=${}&price=${}`
     onAccept(quotationPrice);
     window.location.reload()
   };

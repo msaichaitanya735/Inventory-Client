@@ -149,7 +149,7 @@ const HomePage = () => {
       return; // Do not proceed if the form is not valid
     }
   
-    const apiUrl = 'http://localhost:8080/user/login';
+    const apiUrl = 'https://saichaitanyamuthyala.com/user/login';
     const LoginRequest = {
       username: formData.email,
       password: formData.password,
@@ -208,7 +208,7 @@ const HomePage = () => {
       contact: formData.contactNumber,
       role: formData.userType.toUpperCase() 
     }
-    const apiUrl = 'http://localhost:8080/user/adduser';
+    const apiUrl = 'https://saichaitanyamuthyala.com/user/adduser';
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',
